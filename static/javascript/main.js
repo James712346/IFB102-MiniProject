@@ -1,4 +1,4 @@
-var oscillator = ""
+var oscillator;
 
 var ws = new WebSocket('ws://' + document.domain + ':' + location.port + '/ws');
 
@@ -45,22 +45,20 @@ $("#play").click(function() {
 $('#stop').click(function() {
   $('#stop').hide()
   $('#play').show()
+	oscillator.stop();
 	oscillator.volume.rampTo(-Infinity, 1);
-	oscillator = ""
-	ws.onmessage = ""
-  oscillator.stop();
+	oscillator = None
+	ws.onmessage = None
 });
 
 $('#left').submit(function(e) {
     e.preventDefault();
-    console.log( $("#right .Variable").val())
     Dranges[0] = [$("#Lmin").val(), $("#Lmax").val() ] ;
-    Vranges[sides[0]] = [$("#right .Variable .min").val(), $("#right .Variable .max").val()];
+    Vranges[sides[0]] = [$("#left .Variable .min").val(), $("#left .Variable .max").val()];
     console.log(Dranges, Vranges)
 });
 $('#right').submit(function(e) {
     e.preventDefault();
-    console.log( )
     Dranges[1] = [$("#Rmin").val(), $("#Rmax").val() ] ;
     Vranges[sides[1]] = [$("#right .Variable .min").val(), $("#right .Variable .max").val()];
   console.log(Dranges, Vranges)
