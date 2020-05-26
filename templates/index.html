@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Theremin Connect</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+<link rel="stylesheet" href="/static/css/main.css">
+</head>
+<body>
+  <div>
+    <div class="row m-5">
+      <form id="left" class="col-3 container text-center">
+        <h1>Volume</h1>
+        <div class="input-group m-3 Distance">
+          <div class="input-group-prepend">
+            <span class="input-group-text">Distance Range</span>
+          </div>
+          <input type="number" class="form-control" id="Lmin" value=0 placeholder="Min-Distance" aria-label="" min=0 max=50 >
+          <input type="number" class="form-control" id="Lmax" value=200 placeholder="Max-Distance" aria-label="" min=50 max=200>
+        </div>
+        <div class="input-group m-3 Variable">
+          <div class="input-group-prepend">
+            <span class="input-group-text">Volume range </spam>
+          </div>
+          <input type="number" class="form-control min" value=0 min=0 max=50 placeholder="Min-Frequancy" aria-label="Min-Frequancy">
+          <input type="number" class="form-control max" value=100 min=50 max=100 placeholder="Max-Frequancy" aria-label="Max-Frequancy">
+        </div>
+        <button type="submit" class="btn btn-primary">Update</button>
+      </form>
+      <div class="col-1 container text-center">
+         <button type="button" id="swap" class="btn btn-lg btn-primary"> <i class="fas fa-exchange-alt"></i> </button>
+      </div>
+      <form id="right" class="col-3 container text-center">
+        <h1>Frequancy</h1>
+        <div class="input-group m-3 Distance">
+          <div class="input-group-prepend">
+            <span class="input-group-text">Distance Range</span>
+          </div>
+          <input type="number" class="form-control" id="Rmin" value=0 placeholder="Min-Distance" aria-label="" min=0 max=50>
+          <input type="number" class="form-control" id="Rmax" value=200 placeholder="Max-Distance" aria-label="" min=50 max=200>
+        </div>
+        <div class="input-group m-3 Variable">
+          <div class="input-group-prepend">
+            <span class="input-group-text">Frequancy Range</span>
+          </div>
+          <input type="number" class="form-control min" value=27 min=27 max=400 placeholder="Min-Frequancy" aria-label="Min-Frequancy">
+          <input type="number" class="form-control max" value=4186 max=4186 min=400 placeholder="Max-Frequancy" aria-label="Max-Frequancy">
+        </div>
+        <button type="submit" class="btn btn-primary">Update</button>
+      </form>
+    </div>
+    <div class="centered">
+      <button class="btn btn-primary centered" id="play">Play</button>
+      <button class="btn btn-primary centered" id="stop">Stop</button>
+    </div>
+  </div>
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+  <script type="text/javascript" src="/static/javascript/Tone.js"></script>
+  <script type="text/javascript" src="/static/javascript/main.js"></script>
+</body>
+</html>
