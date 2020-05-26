@@ -2,7 +2,7 @@ var synth = new oscillators.push(new Tone.Oscillator({
 				"frequency" : 420,
 				"type" : "sawtooth10",
 				"volume" : -Infinity,
-				"detune" : Math.random() * 30 - 15}).toMaster());.toMaster()
+				"detune" : Math.random() * 30 - 15}).toMaster());
 var ws = new WebSocket('ws://' + document.domain + ':' + location.port + '/ws');
 
 var sides = [0,1];
