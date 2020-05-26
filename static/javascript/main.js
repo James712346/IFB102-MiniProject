@@ -28,7 +28,7 @@ $("#play").click(function() {
   }
   $('#play').hide()
   $('#stop').show()
-	oscillator = new Tone.Oscillator({"frequency" : 440,"type" : "sawtooth10","volume" : 1,"detune" : Math.random() * 30 - 15}).toMaster();
+	oscillator = new Tone.Oscillator({"frequency" : 440, "type" : "sawtooth10","volume" : 1,"detune" : Math.random() * 30 - 15}).toMaster();
   oscillator.start();
   ws.onmessage = function (event) {
        data = JSON.parse(event.data);

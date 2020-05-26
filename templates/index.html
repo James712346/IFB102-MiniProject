@@ -49,8 +49,19 @@
       </form>
     </div>
     <div class="centered">
-      <button class="btn btn-primary centered" id="play">Play</button>
-      <button class="btn btn-primary centered" id="stop">Stop</button>
+      <form id="global" class="col-3 container text-center">
+        <div class="input-group-prepend">
+          <span class="input-group-text">Oscillator Type</span>
+        </div>
+        <select class="form-control form-control-lg" id="type">
+          <option>sine</option>
+          <option>square</option>
+          <option>triangle</option>
+          <option>sawtooth</option>
+        </select>
+        <button class="btn btn-primary centered" id="play">Play</button>
+        <button class="btn btn-primary centered" id="stop">Stop</button>
+      </form>
     </div>
   </div>
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
