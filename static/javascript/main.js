@@ -41,6 +41,7 @@ $("#play").click(function() {
          synth.frequency.rampTo(freq, 1)
          synth.volume.rampTo(volume, 1)
        }
+		 }
 });
 $('#stop').click(function() {
   $('#stop').hide()
