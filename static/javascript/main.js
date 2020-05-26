@@ -23,6 +23,9 @@ $("#swap").click(function() {
 
 $("#play").click(function() {
 	var context = new AudioContext();
+	if (Tone.context.state !== 'running') {
+        Tone.context.resume();
+  }
   $('#play').hide()
   $('#stop').show()
 	oscillator = new Tone.Oscillator({"frequency" : 440,"type" : "sawtooth10","volume" : -Infinity,"detune" : Math.random() * 30 - 15}).toMaster();
