@@ -28,7 +28,6 @@ $("#play").click(function() {
   var context = new AudioContext();
   synth.start();
   ws.onmessage = function (event) {
-       synth.triggerRelease();
        data = JSON.parse(event.data);
        //percentage of Distance to Max Distance times range of the Frequancy
        freq = ((parseFloat(data[1])-Dranges[sides[1]][0]/Dranges[sides[1]][1]) * (Vranges[1][1] - Vranges[1][0])) + Vranges[1][0];
