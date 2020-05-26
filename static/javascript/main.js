@@ -39,10 +39,8 @@ $("#play").click(function() {
        volume = parseInt(volume)
        console.log("Freq = "+ freq);
        console.log("Volume = "+ volume);
-       if (freq < Vranges[1][1] && freq > Vranges[1][0]){
-         oscillator.frequency.rampTo(freq, ChangeRate)
-         oscillator.volume.rampTo(volume, ChangeRate)
-       }
+       oscillator.frequency.rampTo(freq, ChangeRate)
+       oscillator.volume.rampTo(volume, ChangeRate)
 		 }
 });
 $('#stop').click(function() {
