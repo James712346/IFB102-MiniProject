@@ -32,8 +32,8 @@ $("#play").click(function() {
        //percentage of Distance to Max Distance times range of the Frequancy
        freq = ((parseFloat(data[1])-Dranges[sides[1]][0]/Dranges[sides[1]][1]) * (Vranges[1][1] - Vranges[1][0])) + Vranges[1][0];
        volume = ((parseFloat(data[0])-Dranges[sides[0]][0]/Dranges[sides[0]][1])*(Vranges[0][1] - Vranges[0][0])) + Vranges[0][0];//give a percentage of how intense the note will be
-       freq = freq.toFixed(2)
-       volume = (volume/100).toFixed(2)
+       freq = parseFloat(freq).toFixed(2)
+       volume = parseFloat(volume/100).toFixed(2)
        console.log("Freq = "+ freq);
        console.log("Volume = "+ volume);
        if (freq < Vranges[1][1] && freq > Vranges[1][0]){
