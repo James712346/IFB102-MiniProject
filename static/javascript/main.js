@@ -25,7 +25,7 @@ $("#play").click(function() {
 	var context = new AudioContext();
   $('#play').hide()
   $('#stop').show()
-	var oscillator = new Tone.Oscillator({"frequency" : 440,"type" : "sawtooth10","volume" : -Infinity,"detune" : Math.random() * 30 - 15}).toMaster();
+	oscillator = new Tone.Oscillator({"frequency" : 440,"type" : "sawtooth10","volume" : -Infinity,"detune" : Math.random() * 30 - 15}).toMaster();
   oscillator.start();
   ws.onmessage = function (event) {
        data = JSON.parse(event.data);
@@ -46,7 +46,7 @@ $('#stop').click(function() {
   $('#stop').hide()
   $('#play').show()
 	oscillator.volume.rampTo(-Infinity, 1);
-	var oscillator = ""
+	oscillator = ""
 	ws.onmessage = ""
   oscillator.stop();
 });
