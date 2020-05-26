@@ -9,6 +9,8 @@ var sides_titles = ["Volume", "Frequancy"];
 var Dranges = [[0,200],[0,200]];
 var Vranges = [[0,100],[27.5, 4186]];
 
+var ChangeRate = 1
+
 var html = [$("#left .Variable").html(), $("#right .Variable").html()];
 $('#stop').hide()
 $("#swap").click(function() {
@@ -35,17 +37,18 @@ $("#play").click(function() {
        console.log("Freq = "+ freq);
        console.log("Volume = "+ volume);
        if (freq < Vranges[1][1] && freq > Vranges[1][0]){
-         oscillator.frequency.rampTo(freq, 1)
-         oscillator.volume.rampTo(volume, 1)
+         oscillator.frequency.rampTo(freq, ChangeRate)
+         oscillator.volume.rampTo(volume, ChangeRate)
        }
 		 }
 });
 $('#stop').click(function() {
   $('#stop').hide()
   $('#play').show()
-  oscillator.stop();
+	oscillator.volume.rampTo(-Infinity, 1);
 	var oscillator = ""
-  ws.onmessage = ""
+	ws.onmessage = ""
+  oscillator.stop();
 });
 
 $('#left').submit(function(e) {
