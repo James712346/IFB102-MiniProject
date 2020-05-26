@@ -36,7 +36,7 @@ $("#play").click(function() {
        volume = (volume/100).toFixed(2)
        console.log("Freq = "+ freq);
        console.log("Volume = "+ volume);
-       if (freq < maxfreq && freq > minfreq){
+       if (freq < Vranges[1][1] && freq > Vranges[1][0]){
          synth.frequency.rampTo(freq, 1)
          synth.volume.rampTo(volume, 1)
        }
