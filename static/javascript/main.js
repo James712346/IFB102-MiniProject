@@ -47,8 +47,8 @@ $('#stop').click(function() {
   $('#play').show()
 	oscillator.stop();
 	oscillator.volume.rampTo(-Infinity, 1);
-	oscillator = None
-	ws.onmessage = None
+	oscillator = undefined
+	ws.onmessage = undefined
 });
 
 $('#left').submit(function(e) {
