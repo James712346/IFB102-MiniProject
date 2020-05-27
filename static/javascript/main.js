@@ -51,6 +51,9 @@ $('#stop').click(function() {
 	oscillator = undefined
 	ws.onmessage = undefined
 });
+$('#global').submit(function(e) {
+    e.preventDefault();
+}
 
 $('#left').submit(function(e) {
     e.preventDefault();
