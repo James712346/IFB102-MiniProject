@@ -23,7 +23,7 @@ $("#swap").click(function() {
 
 $("#play").click(function() {
   console.log($('#global').validate())
-  if ($('#global').validate()) {
+  if ($("#global").valid()) {
   var ChangeRate = $("#global .ramp").val();
 	var context = new AudioContext();
 	if (Tone.context.state !== 'running') {
