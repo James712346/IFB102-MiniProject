@@ -26,8 +26,8 @@ $("#play").click(function() {
 	if (Tone.context.state !== 'running') {
         Tone.context.resume();
   }
-  $('#play').hide()
-  $('#stop').show()
+  $('#play').hide();
+  $('#stop').show();
 	oscillator = new Tone.Oscillator({"frequency" : 440, "type" : $("#type").val(),"volume" : 1,"detune" : Math.random() * 30 - 15}).toMaster();
   oscillator.start();
   ws.onmessage = function (event) {
@@ -39,7 +39,7 @@ $("#play").click(function() {
        volume = parseInt(volume)
        console.log("Freq = "+ freq);
        console.log("Volume = "+ volume);
-       oscillator.frequency.rampTo(freq, ChangeRate)
+       oscillator.frequency.rampTo(freq, $("#global .ramp").val())
        oscillator.volume.rampTo(volume, ChangeRate)
 		 }
 });
