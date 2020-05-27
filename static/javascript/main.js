@@ -53,7 +53,7 @@ $('#stop').click(function() {
 });
 $('#global').submit(function(e) {
     e.preventDefault();
-}
+});
 
 $('#left').submit(function(e) {
     e.preventDefault();
