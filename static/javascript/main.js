@@ -9,7 +9,7 @@ var sides_titles = ["Volume", "Frequancy"];
 var Dranges = [[0,200],[0,200]];
 var Vranges = [[0,100],[27.5, 4186]];
 
-var ChangeRate = 1
+var ChangeRate = $("#global .ramp").val();
 
 var html = [$("#left .Variable").html(), $("#right .Variable").html()];
 $('#stop').hide()
@@ -22,6 +22,9 @@ $("#swap").click(function() {
 });
 
 $("#play").click(function() {
+  console.log($('#global').validate())
+  if ($('#global').validate()) {
+  var ChangeRate = $("#global .ramp").val();
 	var context = new AudioContext();
 	if (Tone.context.state !== 'running') {
         Tone.context.resume();
@@ -39,9 +42,10 @@ $("#play").click(function() {
        volume = parseInt(volume)
        console.log("Freq = "+ freq);
        console.log("Volume = "+ volume);
-       oscillator.frequency.rampTo(freq, $("#global .ramp").val())
+       oscillator.frequency.rampTo(freq, )
        oscillator.volume.rampTo(volume, ChangeRate)
 		 }
+   }
 });
 $('#stop').click(function() {
   $('#stop').hide()
