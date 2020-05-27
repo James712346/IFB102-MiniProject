@@ -40,9 +40,16 @@ $("#play").click(function() {
        volume = (((parseFloat(data[sides[0]])-Dranges[sides[0]][0])/Dranges[sides[0]][1])*(Vranges[0][1] - Vranges[0][0])) + Vranges[0][0];//give a percentage of how intense the note will be
        freq = parseFloat(freq).toFixed(2)
        volume = parseInt(volume)
+       if (sides[0] == 0){
+         ('#left h3').val(volume + "%")
+         ('#right h3').val(frequency + "Hz")
+       } else {
+         ('#right h3').val(volume + "%")
+         ('#left h3').val(frequency + "Hz")
+       }
        console.log("Freq = "+ freq);
        console.log("Volume = "+ volume);
-       oscillator.frequency.rampTo(freq, )
+       oscillator.frequency.rampTo(freq, ChangeRate)
        oscillator.volume.rampTo(volume, ChangeRate)
 		 }
    }
