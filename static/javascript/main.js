@@ -42,10 +42,10 @@ $("#play").click(function() {
        volume = parseInt(volume)
        if (sides[0] == 0){
          $('#left h3').html(volume + "%")
-         $('#right h3').html(frequency + "Hz")
+         $('#right h3').html(freq + "Hz")
        } else {
          $('#right h3').html(volume + "%")
-        $('#left h3').html(frequency + "Hz")
+        $('#left h3').html(freq + "Hz")
        }6
        oscillator.frequency.rampTo(freq, ChangeRate)
        oscillator.volume.rampTo(volume, ChangeRate)
