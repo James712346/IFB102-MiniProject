@@ -41,14 +41,12 @@ $("#play").click(function() {
        freq = parseFloat(freq).toFixed(2)
        volume = parseInt(volume)
        if (sides[0] == 0){
-         ('#left h3').val(volume + "%")
-         ('#right h3').val(frequency + "Hz")
+         $('#left h3').val(volume + "%")
+         $('#right h3').val(frequency + "Hz")
        } else {
-         ('#right h3').val(volume + "%")
-         ('#left h3').val(frequency + "Hz")
-       }
-       console.log("Freq = "+ freq);
-       console.log("Volume = "+ volume);
+         $('#right h3').val(volume + "%")
+        $('#left h3').val(frequency + "Hz")
+       }6
        oscillator.frequency.rampTo(freq, ChangeRate)
        oscillator.volume.rampTo(volume, ChangeRate)
 		 }
