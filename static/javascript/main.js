@@ -46,10 +46,10 @@ $("#play").click(function() {
 $('#stop').click(function() {
   $('#stop').hide()
   $('#play').show()
+  ws.onmessage = undefined
+  oscillator.volume.rampTo(-Infinity, 1);
+  oscillator = undefined
 	oscillator.stop();
-	oscillator.volume.rampTo(-Infinity, 1);
-	oscillator = undefined
-	ws.onmessage = undefined
 });
 $('#global').submit(function(e) {
     e.preventDefault();
