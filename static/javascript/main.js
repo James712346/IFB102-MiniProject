@@ -33,8 +33,8 @@ $("#play").click(function() {
   ws.onmessage = function (event) {
        data = JSON.parse(event.data);
        //percentage of Distance to Max Distance times range of the Frequancy
-       freq = (((parseFloat(data[1])-Dranges[sides[1]][0])/Dranges[sides[1]][1]) * (Vranges[1][1] - Vranges[1][0])) + Vranges[1][0];
-       volume = (((parseFloat(data[0])-Dranges[sides[0]][0])/Dranges[sides[0]][1])*(Vranges[0][1] - Vranges[0][0])) + Vranges[0][0];//give a percentage of how intense the note will be
+       freq = (((parseFloat(data[sides[1]])-Dranges[sides[1]][0])/Dranges[sides[1]][1]) * (Vranges[1][1] - Vranges[1][0])) + Vranges[1][0];
+       volume = (((parseFloat(data[sides[0]])-Dranges[sides[0]][0])/Dranges[sides[0]][1])*(Vranges[0][1] - Vranges[0][0])) + Vranges[0][0];//give a percentage of how intense the note will be
        freq = parseFloat(freq).toFixed(2)
        volume = parseInt(volume)
        console.log("Freq = "+ freq);
