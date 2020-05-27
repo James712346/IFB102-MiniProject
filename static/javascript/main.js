@@ -49,7 +49,6 @@ $('#stop').click(function() {
   ws.onmessage = undefined
   oscillator.volume.rampTo(-Infinity, 1);
   oscillator = undefined
-	oscillator.stop();
 });
 $('#global').submit(function(e) {
     e.preventDefault();
