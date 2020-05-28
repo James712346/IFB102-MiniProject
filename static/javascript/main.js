@@ -4,7 +4,7 @@ var ws;
 //sets up variables
 var sides = [0,1];
 var sides_titles = ["Volume", "Frequency"];
-var Dranges = [[0,200],[0,200]];
+var Dranges = [[0,100],[0,100]];
 var Vranges = [[-5,5],[80, 800]];
 var ChangeRate = $("#global .ramp").val();
 var html = [$("#left .Variable").html(), $("#right .Variable").html()]; //copies the html content that can be swapped
@@ -48,7 +48,7 @@ $("#play").click(function() {
          volume = DatatoPercentage(data[sides[0]], Dranges[sides[0]][0], Dranges[sides[0]][1]);
          volume = volume * (Vranges[0][1] - Vranges[0][0]) + Vranges[0][0];
          freq = parseFloat(freq).toFixed(2);
-         volume = parseInt(volume);
+         volume = parseFloat(volume).toFixed(2);
          if (sides[0] == 0){
            $('#left h3').html(volume + "db");
            $('#right h3').html(freq + "Hz");
