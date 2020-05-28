@@ -22,8 +22,9 @@ async def SendtoWebsocket():
         reads = [ round(d.read('cm',samples),1) for d in Distance ]
         print(reads)
         for websocket in clients:
+            await websocket.send(str(reads))
             try:
-                await websocket.send(str(reads))
+                pass
             except asyncio.CancelledError:
                 print("Client Disconnected")
         await asyncio.sleep(0.05) #Give 0.05 seconds to the webserver for other tasks
