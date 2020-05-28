@@ -19,7 +19,7 @@ $("#swap").click(function() { //when the swap button is clicked sides is reverse
 });
 
 function DatatoPercentage(data, min, max){
-  if (min <= data || max >= data){
+  if (min <= data && max >= data){
     return (parseFloat(data)-min)/(max-min); //convert the data into a percentage if in the ranges
   } else if (min <= data) {
     return 1; //if value is above the max value then send 1
