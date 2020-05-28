@@ -11,8 +11,8 @@ Distance = [Echo(*pin ,speed) for pin in Pins]
 print(Distance[0].read('cm'))
 clients = set()
 
-class Dummy():
-    def done():
+class Dummy:
+    def done(self):
         return True
 
 task = Dummy()
