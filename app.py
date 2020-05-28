@@ -11,6 +11,12 @@ Distance = [Echo(*pin ,speed) for pin in Pins]
 print(Distance[0].read('cm'))
 clients = set()
 
+class Dummy():
+    def Done():
+        return True
+
+task = Dummy()
+
 async def SendtoWebsocket():
     while clients: #while clients are connected
         reads = [ round(d.read('cm',samples),1) for d in Distance ]
@@ -25,12 +31,12 @@ async def SendtoWebsocket():
 
 @app.websocket('/ws')
 async def ws():
+    global task
     Webserver_Loop = asyncio.get_event_loop()
     clients.add(websocket._get_current_object())
-    if "Websocket" in [task.get_name() for task in asyncio.all_tasks()]:
-        print("Starting Task")
+    if task.done():
+        print("Starting New Task")
         task = asyncio.create_task(SendtoWebsocket())
-        task.set_name("Websocket")
     print(asyncio.all_tasks())
 
 
