@@ -1,4 +1,5 @@
 from quart import websocket, Quart, render_template
+from functools import wraps
 from Bluetin_Echo import Echo
 import time
 import asyncio
