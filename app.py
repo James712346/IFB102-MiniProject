@@ -20,6 +20,7 @@ task = Dummy()
 async def SendtoWebsocket():
     while clients: #while clients are connected
         reads = [ round(d.read('cm',samples),1) for d in Distance ]
+        print(reads)
         for websocket in clients:
             try:
                 await websocket.send(str(reads))
