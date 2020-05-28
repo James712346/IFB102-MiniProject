@@ -35,10 +35,10 @@ async def ws():
     global task
     Webserver_Loop = asyncio.get_event_loop()
     clients.add(websocket._get_current_object())
+    print(clients)
     if task.done():
         print("Starting New Task")
         task = asyncio.create_task(SendtoWebsocket())
-    print(asyncio.all_tasks())
 
 
 @app.route('/', methods=['GET'])
