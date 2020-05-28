@@ -5,7 +5,7 @@ import time
 import asyncio
 
 app = Quart(__name__)
-Pins = ((22,18),(23,17))
+Pins = ((17,18),(23,22))
 speed = 320
 samples = 5
 Distance = [Echo(*pin ,speed) for pin in Pins]
@@ -53,7 +53,7 @@ async def ws():
 
 @app.route('/', methods=['GET'])
 async def posts():
-    return await render_template('index.html')
+    return await render_template('index.html') #Response to the request with a the HTML file
 
 
 app.run(host='0.0.0.0',port=81)
