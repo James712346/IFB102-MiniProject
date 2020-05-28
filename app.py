@@ -26,6 +26,7 @@ async def SendtoWebsocket():
             try:
                 pass
             except asyncio.CancelledError:
+                clients.remove(websocket)
                 print("Client Disconnected")
         await asyncio.sleep(0.05) #Give 0.05 seconds to the webserver for other tasks
     print("Finish Task")
