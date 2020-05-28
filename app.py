@@ -23,20 +23,26 @@ async def SendtoWebsocket():
         print(reads)
         for websocket in clients:
             await websocket.send(str(reads))
-            try:
-                pass
-            except asyncio.CancelledError:
-                clients.remove(websocket)
-                print("Client Disconnected")
         await asyncio.sleep(0.05) #Give 0.05 seconds to the webserver for other tasks
     print("Finish Task")
 
+def collect_websocket(func):
+    @wraps(func)
+    async def wrapper(*args, **kwargs):
+        global connected
+        connected.add(websocket._get_current_object())
+        try:
+            return await func(*args, **kwargs)
+        finally:
+            connected.remove(websocket._get_current_object())
+    return wrapper
 
-@app.websocket('/ws')
+
+@app.websocket('/echo')
+@collect_websocket
 async def ws():
     global task
     Webserver_Loop = asyncio.get_event_loop()
-    clients.add(websocket._get_current_object())
     print(clients)
     if task.done():
         print("Starting New Task")
