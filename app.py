@@ -39,7 +39,7 @@ def collect_websocket(func):
     return wrapper
 
 
-@app.websocket('/echo')
+@app.websocket('/ws')
 @collect_websocket
 async def ws():
     global task
