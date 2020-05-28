@@ -77,14 +77,14 @@ $('#global').submit(function(e) {
 
 $('#left').submit(function(e) {
     e.preventDefault();
-    Dranges[0] = [$("#Lmin").val(), $("#Lmax").val() ] ;
-    Vranges[sides[0]] = [$("#left .Variable .min").val(), $("#left .Variable .max").val()];
+    Dranges[0] = [parseFloat($("#Lmin").val()), parseFloat($("#Lmax").val() )] ;
+    Vranges[sides[0]] = [parseFloat($("#left .Variable .min").val()), parseFloat($("#left .Variable .max").val())];
     console.log(Dranges, Vranges)
 });
 $('#right').submit(function(e) {
     e.preventDefault();
-    Dranges[1] = [$("#Rmin").val(), $("#Rmax").val() ] ;
-    Vranges[sides[1]] = [$("#right .Variable .min").val(), $("#right .Variable .max").val()];
+    Dranges[1] = [parseFloat($("#Rmin").val()), parseFloat($("#Rmax").val()) ] ;
+    Vranges[sides[1]] = [parseFloat($("#right .Variable .min").val()), parseFloat($("#right .Variable .max").val())];
   console.log(Dranges, Vranges)
 });
 
