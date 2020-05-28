@@ -3,7 +3,7 @@ var oscillator;
 var ws = new WebSocket('ws://' + document.domain + ':' + location.port + '/ws');
 
 var sides = [0,1];
-var sides_titles = ["Volume", "Frequancy"];
+var sides_titles = ["Volume", "Frequency"];
 
 
 var Dranges = [[0,200],[0,200]];
