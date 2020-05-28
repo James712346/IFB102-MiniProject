@@ -14,17 +14,17 @@
         <h3 id="0"></h3>
         <div class="input-group m-3 Distance">
           <div class="input-group-prepend">
-            <span class="input-group-text">Distance Range</span>
+            <span class="input-group-text">Distance Range (cm)</span>
           </div>
-          <input type="number" class="form-control" id="Lmin" value=0 placeholder="Min-Distance" aria-label="" min=0 max=50 >
-          <input type="number" class="form-control" id="Lmax" value=100 placeholder="Max-Distance" aria-label="" min=50 max=200>
+          <input type="number" class="form-control" id="Lmin" value=0 placeholder="Min-Distance" aria-label="" step="0.1" min=0 max=50 >
+          <input type="number" class="form-control" id="Lmax" value=100 placeholder="Max-Distance" aria-label="" step="0.1" min=50 max=200>
         </div>
         <div class="input-group m-3 Variable">
           <div class="input-group-prepend">
-            <span class="input-group-text">Volume range </spam>
+            <span class="input-group-text">Volume range (db)</spam>
           </div>
-          <input type="number" class="form-control min" value=0 min=0 max=50 placeholder="Min-Frequancy" aria-label="Min-Frequancy">
-          <input type="number" class="form-control max" value=100 min=50 max=100 placeholder="Max-Frequancy" aria-label="Max-Frequancy">
+          <input type="number" class="form-control min" value=-5 min=-10 max=0 placeholder="Min-Frequancy" step="0.01" aria-label="Min-Frequancy">
+          <input type="number" class="form-control max" value=5 min=0 max=10 placeholder="Max-Frequancy" step="0.01" aria-label="Max-Frequancy">
         </div>
         <button type="submit" class="btn btn-primary">Update</button>
       </form>
@@ -36,17 +36,17 @@
         <h3 id="1"></h3>
         <div class="input-group m-3 Distance">
           <div class="input-group-prepend">
-            <span class="input-group-text">Distance Range</span>
+            <span class="input-group-text">Distance Range (cm)</span>
           </div>
-          <input type="number" class="form-control" id="Rmin" value=0 placeholder="Min-Distance" aria-label="" min=0 max=50>
-          <input type="number" class="form-control" id="Rmax" value=100 placeholder="Max-Distance" aria-label="" min=50 max=200>
+          <input type="number" class="form-control" id="Rmin" value=0 placeholder="Min-Distance" step="0.1" aria-label="" min=0 max=50>
+          <input type="number" class="form-control" id="Rmax" value=100 placeholder="Max-Distance" step="0.1" aria-label="" min=50 max=200>
         </div>
         <div class="input-group m-3 Variable">
           <div class="input-group-prepend">
-            <span class="input-group-text">Frequency Range</span>
+            <span class="input-group-text">Frequency Range (Hz)</span>
           </div>
-          <input type="number" class="form-control min" value=80 min=27 max=400 placeholder="Min-Frequancy" aria-label="Min-Frequancy">
-          <input type="number" class="form-control max" value=800 max=4186 min=400 placeholder="Max-Frequancy" aria-label="Max-Frequancy">
+          <input type="number" class="form-control min" value=80 min=27 max=400 placeholder="Min-Frequancy" step="0.1" aria-label="Min-Frequancy">
+          <input type="number" class="form-control max" value=800 max=4186 min=400 placeholder="Max-Frequancy" step="0.1" aria-label="Max-Frequancy">
         </div>
         <button type="submit" class="btn btn-primary">Update</button>
       </form>
@@ -64,7 +64,7 @@
         </select>
         <div class="input-group m-3 Variable">
           <div class="input-group-prepend">
-            <span class="input-group-text">Ramp Rate</span>
+            <span class="input-group-text">Ramp Rate (s)</span>
           </div>
           <input type="number" class="form-control ramp" step="0.01" value=1.00 min=0.00 max=2.00 placeholder="Ramp Rate" aria-label="Ramp Rate">
         </div>

@@ -19,22 +19,21 @@ class Dummy:
 task = Dummy()
 
 async def SendtoWebsocket():
-    while clients: #while clients are connected
-        reads = [ round(d.read('cm',samples),1) for d in Distance ]
-        print(reads)
-        for websocket in clients:
-            await websocket.send(str(reads))
+    while clients: #while clients are connected (if 0 < websockets in the clients set)
+        reads = [ round(d.read('cm',samples),1) for d in Distance ] #read data from the two sensors
+        [await websocket.send(str(reads)) for websocket in clients] #loops through all webscokets open and sends the data from the sensors
         await asyncio.sleep(0.05) #Give 0.05 seconds to the webserver for other tasks
-    print("Finish Task")
+    print("Finish Task") #
 
-def collect_websocket(func):
-    @wraps(func)
-    async def wrapper(*args, **kwargs):
+def collect_websocket(func): #function grabbed from https://medium.com/@pgjones/websockets-in-quart-f2067788d1ee
+    @wraps(func)             #This function add the WS object and puts it into a set (unordered array)
+    async def wrapper(*args, **kwargs): #This could be done in the function below but atm as a proof of concept it works
         global clients
         clients.add(websocket._get_current_object())
         try:
             return await func(*args, **kwargs)
         finally:
+            print("Client left")
             clients.remove(websocket._get_current_object())
     return wrapper
 
@@ -43,13 +42,13 @@ def collect_websocket(func):
 @collect_websocket
 async def ws():
     global task
-    Webserver_Loop = asyncio.get_event_loop()
-    print(clients)
-    if task.done():
-        print("Starting New Task")
+    print("Client Joining")
+    Webserver_Loop = asyncio.get_event_loop() #graps the webserver asyncio loop
+    if task.done(): #checks if a task is running, if task.done() return false that means the task is running
+        print("Starting New Task") #if the task isn't running it will start a new task
         task = asyncio.create_task(SendtoWebsocket())
     while True:
-        await asyncio.sleep(1)
+        await asyncio.sleep(10) #keeps the websocket live untill the websocket closes
 
 
 @app.route('/', methods=['GET'])
