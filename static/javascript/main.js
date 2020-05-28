@@ -5,7 +5,7 @@ var ws;
 var sides = [0,1];
 var sides_titles = ["Volume", "Frequency"];
 var Dranges = [[0,200],[0,200]];
-var Vranges = [[0,100],[27.5, 4186]];
+var Vranges = [[-5,5],[80, 800]];
 var ChangeRate = $("#global .ramp").val();
 var html = [$("#left .Variable").html(), $("#right .Variable").html()]; //copies the html content that can be swapped
 
