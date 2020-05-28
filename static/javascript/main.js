@@ -50,10 +50,10 @@ $("#play").click(function() {
          freq = parseFloat(freq).toFixed(2);
          volume = parseInt(volume);
          if (sides[0] == 0){
-           $('#left h3').html(volume + "%");
+           $('#left h3').html(volume + "db");
            $('#right h3').html(freq + "Hz");
          } else {
-           $('#right h3').html(volume + "%");
+           $('#right h3').html(volume + "db");
           $('#left h3').html(freq + "Hz");
          }
          //changes the note
