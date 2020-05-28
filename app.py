@@ -12,7 +12,7 @@ print(Distance[0].read('cm'))
 clients = set()
 
 class Dummy():
-    def Done():
+    def done():
         return True
 
 task = Dummy()
