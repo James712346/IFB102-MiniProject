@@ -12,7 +12,7 @@ print(Distance[0].read('cm'))
 clients = set()
 
 async def SendtoWebsocket():
-    while True:
+    while clients: #while clients are connected
         reads = [ round(d.read('cm',samples),1) for d in Distance ]
         for websocket in clients:
             try:
@@ -20,14 +20,17 @@ async def SendtoWebsocket():
             except asyncio.CancelledError:
                 print("Client Disconnected")
         await asyncio.sleep(0.05) #Give 0.05 seconds to the webserver for other tasks
+    print("Finish Task")
 
 
 @app.websocket('/ws')
 async def ws():
     Webserver_Loop = asyncio.get_event_loop()
     clients.add(websocket._get_current_object())
-    if (asyncio.all_tasks()):
-        asyncio.create_task(SendtoWebsocket(), name="Web")
+    if "Websocket" in [task.get_name() for task in asyncio.all_tasks()]:
+        print("Starting Task")
+        task = asyncio.create_task(SendtoWebsocket())
+        task.set_name("Websocket")
     print(asyncio.all_tasks())
 
 
