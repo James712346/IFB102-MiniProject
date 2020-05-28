@@ -48,6 +48,8 @@ async def ws():
     if task.done():
         print("Starting New Task")
         task = asyncio.create_task(SendtoWebsocket())
+    while True:
+        await asyncio.sleep(1)
 
 
 @app.route('/', methods=['GET'])
