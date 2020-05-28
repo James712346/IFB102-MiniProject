@@ -30,12 +30,12 @@ async def SendtoWebsocket():
 def collect_websocket(func):
     @wraps(func)
     async def wrapper(*args, **kwargs):
-        global connected
-        connected.add(websocket._get_current_object())
+        global clients
+        clients.add(websocket._get_current_object())
         try:
             return await func(*args, **kwargs)
         finally:
-            connected.remove(websocket._get_current_object())
+            clients.remove(websocket._get_current_object())
     return wrapper
 
 
